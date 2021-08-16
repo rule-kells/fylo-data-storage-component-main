@@ -1,0 +1,333 @@
+:root {
+	/* ## Colors ### */
+
+	/* ## Primary ## */
+
+	--gradient: linear-gradient(90deg, hsl(6, 100%, 80%) 0%, hsl(335, 100%, 65%) 100%);
+
+	/* ## Neutral ## */
+
+	--pale-Blue: hsl(243, 100%, 93%);
+	--grayish-Blue: hsl(229, 7%, 55%);
+	--dark-Blue: hsl(228, 56%, 26%);
+	--very-dark-Blue: hsl(229, 57%, 11%);
+	--very-dark-blue-50: hsla(229, 57%, 11%, .50);
+
+	/* ### Typography ### */
+
+	/* ## font ## */
+
+	/* # Body Copy # */
+
+	--fs-body: 0.88rem;
+
+	/* #font family #  */
+	--ff-primary: 'Raleway', sans-serif;
+}
+
+/* ###
+general stucture and style 
+### */
+html {
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 100%;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: var(--ff-primary);
+	font-size: var(--fs-body);
+	line-height: 1.63em;
+	background-color: var(--very-dark-Blue);
+	color: var(--pale-Blue);
+
+	position: relative;
+}
+
+img {
+	max-width: 100%;
+}
+
+.container {
+	width: 90%;
+	max-width: 920px;
+	margin: 0 auto;
+}
+
+.bg {
+	position: relative;
+}
+
+.bg::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-image: url('../images/bg-mobile.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	z-index: -1;
+}
+
+@media screen and (min-width: 1018px) {
+	.bg::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: url('../images/bg-desktop.png');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center bottom;
+		z-index: -1;
+	}
+}
+
+/* 
+###
+typography and design | style section
+### */
+
+/* ## component section  */
+
+.component {
+	background-color: var(--dark-Blue);
+	border-radius: 0.63rem;
+	box-shadow: 0 75px 100px -30px hsla(0, 0%, 0%, 0.25);
+}
+
+.component-1 {
+	border-radius: 0.63rem 6.25rem 0.63rem 0.63rem;
+	padding: 2.5rem 6.81rem 2.5rem 2.56rem;
+}
+
+.component-2 {
+	padding: 2rem 2rem 3.25rem 2rem;
+}
+
+@media screen and (min-width: 1018px) {
+	.component-1 {
+		padding: 2.5rem 8.31rem 2.5rem 2.5rem;
+	}
+
+	.component-2 {
+		padding: 2.5rem;
+	}
+}
+
+.component-1-img {
+	width: 3rem;
+	height: 3rem;
+	background-color: var(--very-dark-Blue);
+	border-radius: 0.63rem;
+}
+
+/* storage section of component 2  */
+
+.storage-bar {
+	position: relative;
+	background-color: var(--very-dark-blue-50);
+	border-radius: 0.63rem;
+	height: 1.25rem;
+	padding: 0.19rem;
+
+	margin: 1em 0 0.63em;
+}
+
+.storage-bar::before {
+	content: '';
+	position: absolute;
+	background: var(--gradient);
+	height: 0.88rem;
+	width: 80%;
+	border-radius: 0.5rem;
+	background-position: center center;
+	/* z-index: 1; */
+}
+
+.storage-bar::after {
+	content: '';
+	position: absolute;
+	background: #fff;
+	right: 20%;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	width: 0.63rem;
+	height: 0.63rem;
+	border-radius: 50%;
+	background-position: center right;
+}
+
+.storage-used span {
+	font-weight: 700;
+}
+
+.storage-size {
+	display: inline-block;
+	font-size: 0.75rem;
+	font-weight: 700;
+}
+
+.storage-remaining-bubble {
+	position: relative;
+	background-color: #fff;
+	width: 60%;
+	font-weight: 700;
+	margin: 0 auto;
+	padding: 1em 1.5em;
+	border-radius: 0.63rem;
+	box-shadow: 0 75px 100px -30px hsla(0, 0%, 0%, 0.25);
+}
+
+.storage-remaining-text {
+	color: var(--very-dark-Blue);
+	font-size: 2.5rem;
+	line-height: 2.5rem;
+}
+
+.storage-remaining-text span {
+	vertical-align: middle;
+	color: var(--very-dark-blue-50);
+	font-size: 0.75rem;
+	line-height: 0.88rem;
+}
+
+/* ###
+structure and layout 
+### */
+
+/* ## component section  */
+
+.container-flex {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: flex-end;
+	align-content: center;
+	gap: 1em;
+	min-height: 115vh;
+}
+
+@media screen and (min-width: 1018px) {
+	.container-flex {
+		gap: 1.88em;
+	}
+}
+
+/* ## component  1 section  ## */
+
+.component-1-imgs {
+	display: flex;
+	margin-top: 2.06em;
+}
+
+.component-1-img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.component-1-img + .component-1-img {
+	margin-left: 1em;
+}
+
+.component-1 {
+	display: flex;
+	flex-direction: row;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-around;
+
+	flex: 5 1 21.88rem;
+}
+
+/* component 2 stucture  */
+
+.component-2 {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex: 10 1 33.75rem;
+}
+
+.storage-remaining-bubble {
+	position: absolute;
+	transform: translateY(140%);
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+@media screen and (min-width: 1018px) {
+	.storage-bar {
+		margin: 1em 0 0.5em;
+	}
+
+	.storage-remaining-bubble {
+		max-width: 179px;
+		border-radius: 0.63rem 0.63rem 0 0.63rem;
+		left: 275px;
+		right: 0;
+		top: -80%;
+		animation-duration: 2.5s;
+		animation-name: slidein;
+	}
+
+	@keyframes slidein {
+		from {
+			margin-left: -25%;
+			margin-top: 20%;
+		}
+
+		to {
+			margin-left: 8%;
+		}
+	}
+
+	.storage-remaining-bubble::after {
+		position: absolute;
+		content: '';
+		inset: 0;
+		border-left: 20px solid transparent;
+		border-top: 20px solid #fff;
+		bottom: 0;
+		top: 64px;
+		right: 0;
+		left: auto;
+		/* margin-left: 20px; */
+	}
+}
+
+.storage-size-flex {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* attribution section  */
+
+.attribution {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	font-size: 11px;
+	text-align: center;
+}
+
+.attribution a {
+	color: hsl(335, 100%, 65%);
+}
